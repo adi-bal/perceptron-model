@@ -4,6 +4,7 @@ import json
 import os
 from collections import defaultdict
 from typing import Dict, List, Set, Optional
+import math
 
 
 class PerceptronModel:
@@ -194,8 +195,7 @@ class PerceptronModel:
         """
         with open(path, "r") as f:
             self.weights = json.load(f)
-            
-        # Extract labels from the weight keys
+
         self.labels = set()
         for key in self.weights:
             if "#" in key:
